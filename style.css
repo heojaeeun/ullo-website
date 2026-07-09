@@ -586,3 +586,21 @@ img{-webkit-user-drag:none;user-select:none}
 @media (min-width:481px){
   .topbar{padding-top:44px}
 }
+
+/* Short viewports: raise the sheet and shrink the hero together so the
+   product sheet (quantity, total price, Add-to-cart) is always fully
+   visible ABOVE the "All Products / Bestsellers" bar — never clipped or
+   covered. The frosted title band stays aligned with the mossy hero.
+   Keyed on height so it protects both phones and a shrunk desktop frame. */
+@media (max-height:805px){
+  .hero-bg,.hero-stage{height:54%}
+  .sheet{top:43%}
+}
+@media (max-height:730px){
+  .hero-bg,.hero-stage{height:47%}
+  .sheet{top:35%}
+  .sheet__pricelabel{margin-top:10px}
+  .sheet__price-now{font-size:clamp(32px,10vw,42px)}
+  .stepper{height:62px}
+  .cart-btn{height:62px;margin-top:12px}
+}
