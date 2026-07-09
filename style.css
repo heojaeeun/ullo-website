@@ -86,24 +86,6 @@ img{-webkit-user-drag:none;user-select:none}
    over the base layout rules regardless of source order. */
 
 /* ============================================================
-   Status bar
-   ============================================================ */
-.statusbar{
-  position:relative;z-index:40;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:16px 30px 6px;
-  color:#fff;flex:none;
-  font-weight:600;
-}
-.statusbar__time{font-size:16px;letter-spacing:.3px;font-weight:700}
-.statusbar__right{display:flex;align-items:center;gap:7px}
-.statusbar .ic{height:12px;width:auto;fill:#fff}
-.statusbar .ic path{fill:#fff}
-.statusbar .ic--batt{height:14px}
-.statusbar .ic--batt rect{fill:#fff}
-@media (max-width:480px){ .statusbar{padding-top:max(16px,env(safe-area-inset-top))} }
-
-/* ============================================================
    Screens / router
    ============================================================ */
 .screens{position:relative;flex:1;min-height:0}
@@ -586,8 +568,8 @@ img{-webkit-user-drag:none;user-select:none}
      based, so it needs a definite height); sized to the visible area */
   .screen--detail{
     flex:0 0 auto;
-    height:calc(100vh - 46px);
-    height:calc(100svh - 46px);
+    height:100vh;
+    height:100svh;
     min-height:520px;
   }
 
@@ -596,4 +578,11 @@ img{-webkit-user-drag:none;user-select:none}
 
   /* Toast anchored to the viewport instead of the (now tall) app box */
   .toast{position:fixed;bottom:calc(78px + env(safe-area-inset-bottom))}
+}
+
+/* On the desktop device-frame only, keep each screen's title clear of the
+   simulated notch now that the status-bar spacer is gone (mobile has no
+   notch and keeps content at the very top). */
+@media (min-width:481px){
+  .topbar{padding-top:44px}
 }

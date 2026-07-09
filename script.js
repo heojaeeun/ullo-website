@@ -599,14 +599,6 @@
     if (navigator.vibrate) navigator.vibrate(10);
   }
 
-  /* ---------- Clock ---------- */
-  function tickClock() {
-    const d = new Date();
-    let h = d.getHours();
-    const m = d.getMinutes().toString().padStart(2, "0");
-    $("#clock").textContent = `${h}:${m}`;
-  }
-
   /* ---------- Init ---------- */
   function init() {
     loadProduct(PRODUCTS[0]);
@@ -616,8 +608,6 @@
     syncBadges();
     syncTabbar();
     $("#app").classList.add("on-detail");
-    tickClock();
-    setInterval(tickClock, 15000);
 
     // reveal cards when Shop screen first shown
     document.addEventListener("click", (e) => {
