@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
+<meta name="theme-color" content="#5aa7e0" />
+<title>ULLO — Ulleungdo Botanicals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ===== Device frame (desktop) / fullscreen (mobile) ===== -->
+  <div class="device">
+    <div class="device__notch" aria-hidden="true"></div>
+    <div class="app" id="app">
+
+      <!-- ===== Status bar ===== -->
+      <div class="statusbar">
+        <span class="statusbar__time" id="clock">10:41</span>
+        <div class="statusbar__right">
+          <svg class="ic" viewBox="0 0 20 14" aria-hidden="true"><rect x="0" y="9" width="3" height="5" rx="1"/><rect x="5" y="6" width="3" height="8" rx="1"/><rect x="10" y="3" width="3" height="11" rx="1"/><rect x="15" y="0" width="3" height="14" rx="1"/></svg>
+          <svg class="ic" viewBox="0 0 20 15" aria-hidden="true"><path d="M10 3.2c2.9 0 5.6 1.1 7.6 3l-1.7 1.8A8.6 8.6 0 0 0 10 6.6a8.6 8.6 0 0 0-5.9 1.4L2.4 6.2A11.1 11.1 0 0 1 10 3.2Zm0 4.4c1.7 0 3.3.6 4.5 1.8l-1.8 1.8A3.8 3.8 0 0 0 10 11a3.8 3.8 0 0 0-2.7.2L5.5 9.4A6.4 6.4 0 0 1 10 7.6Zm0 4.3 2 2-2 2-2-2 2-2Z"/></svg>
+          <svg class="ic ic--batt" viewBox="0 0 28 14" aria-hidden="true"><rect x="1" y="1" width="23" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.5"/><rect x="3" y="3" width="17" height="8" rx="1.5"/><rect x="25" y="4.5" width="2" height="5" rx="1"/></svg>
+        </div>
+      </div>
+
+      <!-- ===== Screens container ===== -->
+      <main class="screens" id="screens">
+
+        <!-- ============ SCREEN: HOME / PRODUCT DETAIL ============ -->
+        <section class="screen screen--detail is-active" id="screen-detail" data-screen="detail">
+          <div class="hero-bg" id="heroBg"></div>
+
+          <header class="topbar topbar--overlay detail-top">
+            <h1 class="topbar__title">Product detail</h1>
+          </header>
+
+          <div class="hero-stage" id="heroStage">
+            <img class="hero__img" id="heroImg" src="assets/images/cleansing.png" alt="Sambaekrihyang Cleansing Foam" />
+            <button class="hotspot hotspot--1" data-hotspot="0" aria-label="Ingredient detail">
+              <span class="hotspot__ring"></span>
+              <svg viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></svg>
+            </button>
+            <button class="hotspot hotspot--2" data-hotspot="1" aria-label="Ingredient detail">
+              <span class="hotspot__ring"></span>
+              <svg viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></svg>
+            </button>
+            <div class="hotspot-pop" id="hotspotPop">
+              <strong id="popTitle"></strong>
+              <span id="popBody"></span>
+              <button class="hotspot-pop__more" data-nav="story">Learn more ›</button>
+            </div>
+          </div>
+
+          <div class="sheet" id="sheet">
+            <div class="sheet__grip"></div>
+            <h2 class="sheet__title" id="detailName">Sambaekrihyang Cleansing Foam</h2>
+            <p class="sheet__sub" id="detailSize">150 ml / 5.7 fl oz</p>
+
+            <div class="stepper">
+              <button class="stepper__btn" id="minusBtn" aria-label="Decrease">
+                <svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg>
+              </button>
+              <span class="stepper__count" id="qty">1</span>
+              <button class="stepper__btn" id="plusBtn" aria-label="Increase">
+                <svg viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></svg>
+              </button>
+            </div>
+
+            <p class="sheet__pricelabel">Total Price</p>
+            <div class="sheet__price">
+              <span class="sheet__price-now" id="priceNow">₩16,900</span>
+            </div>
+
+            <button class="cart-btn" id="addCartBtn">
+              <span class="cart-btn__ic cart-btn__ic--left">
+                <svg viewBox="0 0 24 24"><path d="M4 5h2l2.2 11.2a1 1 0 0 0 1 .8h8.4a1 1 0 0 0 1-.78L21 8H7"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>
+              </span>
+              <span class="cart-btn__label">Add to cart <span class="cart-btn__chev">›››</span></span>
+              <span class="cart-btn__ic cart-btn__ic--right">
+                <svg viewBox="0 0 24 24"><path d="M4 5h2l2.2 11.2a1 1 0 0 0 1 .8h8.4a1 1 0 0 0 1-.78L21 8H7"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>
+              </span>
+            </button>
+          </div>
+
+          <div class="detail-foot">
+            <div class="pillnav">
+              <button class="pillnav__item is-active" data-filter="all" data-goproducts>All Products</button>
+              <button class="pillnav__item" data-filter="best" data-goproducts>Bestsellers</button>
+            </div>
+            <button class="detail-foot__dot" data-goproducts data-filter="all" aria-label="Browse products"></button>
+          </div>
+        </section>
+
+        <!-- ============ SCREEN: PRODUCT LIST ============ -->
+        <section class="screen screen--products" id="screen-products" data-screen="products">
+          <header class="topbar topbar--light">
+            <button class="topbar__btn topbar__btn--dark" data-nav="detail" aria-label="Back">
+              <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+            </button>
+            <h1 class="topbar__title topbar__title--dark">Products</h1>
+            <button class="topbar__btn topbar__btn--dark" data-nav="cart" aria-label="Cart">
+              <svg viewBox="0 0 24 24"><path d="M4 5h2l2.2 11.2a1 1 0 0 0 1 .8h8.4a1 1 0 0 0 1-.78L21 8H7"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>
+              <span class="topbar__badge" id="cartBadgeTop">0</span>
+            </button>
+          </header>
+
+          <div class="products-scroll">
+            <div class="prod-intro">
+              <p class="prod-intro__eyebrow">ULLO · Ulleungdo</p>
+              <h2 class="prod-intro__title">Connecting Ulleungdo's Native Botanicals &amp; Your Skin</h2>
+            </div>
+
+            <div class="seg" id="seg">
+              <button class="seg__item is-active" data-filter="all">All Products</button>
+              <button class="seg__item" data-filter="best">Bestseller</button>
+            </div>
+
+            <div class="grid" id="grid"><!-- cards injected by JS --></div>
+            <div class="products-space"></div>
+          </div>
+        </section>
+
+        <!-- ============ SCREEN: PLANT STORY ============ -->
+        <section class="screen screen--story" id="screen-story" data-screen="story">
+          <header class="topbar topbar--overlay">
+            <button class="topbar__btn" data-nav="products" aria-label="Back">
+              <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+            </button>
+            <h1 class="topbar__title"></h1>
+            <button class="topbar__btn" data-nav="detail" aria-label="Home">
+              <svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7M6 10v9h12v-9"/></svg>
+            </button>
+          </header>
+
+          <div class="story-scroll">
+            <div class="story-head">
+              <p class="story-head__eyebrow">Ulleungdo Native Plant</p>
+              <h2 class="story-head__title">Sambaekrihyang</h2>
+              <p class="story-head__kr">삼백리향 · Creeping Thyme</p>
+            </div>
+
+            <div class="orbit">
+              <div class="orbit__ring orbit__ring--outer"></div>
+              <div class="orbit__ring orbit__ring--inner"></div>
+              <span class="orbit__dot orbit__dot--top"><svg viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></svg></span>
+              <span class="orbit__dot orbit__dot--bottom"><svg viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></svg></span>
+              <div class="plant" id="plant"></div>
+            </div>
+
+            <div class="story-tabs" id="storyTabs">
+              <button class="story-tab is-active" data-tab="feature">
+                <span class="story-tab__ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="2.4"/><circle cx="7" cy="15" r="2.4"/><circle cx="17" cy="15" r="2.4"/><path d="M12 9.4v3M9 14l2-1M15 14l-2-1"/></svg></span>
+                <span>Traits</span>
+              </button>
+              <button class="story-tab story-tab--go" data-tab="next"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+              <button class="story-tab" data-tab="habitat">
+                <span class="story-tab__ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10z"/><circle cx="12" cy="11" r="2.2"/></svg></span>
+                <span>Habitat</span>
+              </button>
+            </div>
+
+            <div class="story-panel" id="storyPanel"></div>
+          </div>
+        </section>
+
+        <!-- ============ SCREEN: CART ============ -->
+        <section class="screen screen--cart" id="screen-cart" data-screen="cart">
+          <header class="topbar topbar--light">
+            <button class="topbar__btn topbar__btn--dark" data-nav="products" aria-label="Back">
+              <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+            </button>
+            <h1 class="topbar__title topbar__title--dark">Your Cart</h1>
+            <span style="width:40px"></span>
+          </header>
+          <div class="cart-scroll">
+            <div class="cart-list" id="cartList"></div>
+            <div class="cart-empty" id="cartEmpty">
+              <div class="cart-empty__ic">
+                <svg viewBox="0 0 24 24"><path d="M4 5h2l2.2 11.2a1 1 0 0 0 1 .8h8.4a1 1 0 0 0 1-.78L21 8H7"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>
+              </div>
+              <p>Your cart is empty</p>
+              <button class="cart-empty__btn" data-nav="products">Browse products</button>
+            </div>
+          </div>
+          <div class="cart-foot" id="cartFoot">
+            <div class="cart-foot__row">
+              <span>Total</span>
+              <strong id="cartTotal">₩0</strong>
+            </div>
+            <button class="cart-btn cart-btn--solid" id="checkoutBtn">
+              <span class="cart-btn__label">Checkout <span class="cart-btn__chev">›››</span></span>
+            </button>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- ===== Bottom Tab Bar ===== -->
+      <nav class="tabbar" id="tabbar">
+        <button class="tab is-active" data-nav="detail" aria-label="Featured">
+          <svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7M6 10v9h12v-9"/></svg>
+          <span>Home</span>
+        </button>
+        <button class="tab" data-nav="products" aria-label="Products">
+          <svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.6"/><rect x="13" y="4" width="7" height="7" rx="1.6"/><rect x="4" y="13" width="7" height="7" rx="1.6"/><rect x="13" y="13" width="7" height="7" rx="1.6"/></svg>
+          <span>Shop</span>
+        </button>
+        <button class="tab" data-nav="story" aria-label="Story">
+          <svg viewBox="0 0 24 24"><path d="M12 21c-1-6-4-8-8-8 4 0 7-2 8-8 1 6 4 8 8 8-4 0-7 2-8 8z"/></svg>
+          <span>Story</span>
+        </button>
+        <button class="tab" data-nav="cart" aria-label="Cart">
+          <svg viewBox="0 0 24 24"><path d="M4 5h2l2.2 11.2a1 1 0 0 0 1 .8h8.4a1 1 0 0 0 1-.78L21 8H7"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>
+          <span>Cart</span>
+          <span class="tab__badge" id="cartBadgeTab">0</span>
+        </button>
+      </nav>
+
+      <!-- ===== Toast ===== -->
+      <div class="toast" id="toast">
+        <span class="toast__ic"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
+        <span id="toastMsg">Added to cart</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== Loading overlay ===== -->
+  <div class="loader" id="loader">
+    <div class="loader__logo">ULLO</div>
+    <div class="loader__bar"><span></span></div>
+    <p class="loader__tag">Ulleungdo Botanicals</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
