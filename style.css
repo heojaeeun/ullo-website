@@ -82,12 +82,8 @@ img{-webkit-user-drag:none;user-select:none}
   display:flex;flex-direction:column;
   isolation:isolate;
 }
-@media (max-width:480px){
-  body{overflow:auto}
-  .device{width:100vw;height:100dvh;border-radius:0;padding:0;box-shadow:none}
-  .device__notch{display:none}
-  .app{border-radius:0}
-}
+/* Mobile scroll overrides live at the very end of this file so they win
+   over the base layout rules regardless of source order. */
 
 /* ============================================================
    Status bar
@@ -541,4 +537,63 @@ img{-webkit-user-drag:none;user-select:none}
 
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.001ms!important;transition-duration:.08s!important}
+}
+
+/* ============================================================
+   MOBILE — full natural page scrolling (placed last so it wins)
+   The design is unchanged; only the fixed-viewport shell is
+   relaxed so the document height grows with the content.
+   ============================================================ */
+@media (max-width:480px){
+  html{height:auto}
+  body{
+    display:block;
+    height:auto;
+    min-height:100vh;min-height:100svh;
+    overflow-x:hidden;overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .device{
+    width:100%;height:auto;
+    min-height:100vh;min-height:100svh;
+    border-radius:0;padding:0;box-shadow:none;overflow:visible;
+  }
+  .device__notch{display:none}
+  .app{
+    height:auto;
+    min-height:100vh;min-height:100svh;
+    border-radius:0;overflow:visible;
+  }
+
+  /* Screens flow in normal document order; only the active one is shown */
+  .screens{position:static;flex:0 0 auto;min-height:0;overflow:visible}
+  .screen{
+    position:relative;inset:auto;
+    opacity:1;visibility:visible;transform:none;pointer-events:auto;
+    transition:none;z-index:auto;
+  }
+  .screen:not(.is-active){display:none}
+  .screen.is-active{display:flex}
+
+  /* Inner scroll regions expand so the page (not a nested box) scrolls */
+  .products-scroll,.story-scroll,.cart-scroll{
+    overflow:visible;flex:0 0 auto;height:auto;
+  }
+  .cart-scroll{flex:1 1 auto}
+  .cart-foot{position:static}
+
+  /* Home keeps its single-viewport composition (its layout is percentage
+     based, so it needs a definite height); sized to the visible area */
+  .screen--detail{
+    flex:0 0 auto;
+    height:calc(100vh - 46px);
+    height:calc(100svh - 46px);
+    min-height:520px;
+  }
+
+  /* Bottom nav stays reachable while scrolling, without locking height */
+  .tabbar{position:sticky;bottom:0}
+
+  /* Toast anchored to the viewport instead of the (now tall) app box */
+  .toast{position:fixed;bottom:calc(78px + env(safe-area-inset-bottom))}
 }
