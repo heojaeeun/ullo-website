@@ -214,7 +214,7 @@
   });
 
   /* ---------- Drag-to-add slide button ----------
-     Drag the right circular handle left onto the left target to add. */
+     Drag the left circular handle right onto the right target to add. */
   (function () {
     const btn = $("#addCartBtn");
     const handle = btn.querySelector(".cart-btn__ic--left");
