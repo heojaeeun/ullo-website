@@ -13,7 +13,6 @@
       sub: "Purifying & Refreshing",
       size: "150 ml / 5.7 fl oz",
       price: 16900,
-      was: 19900,
       img: "assets/images/cleansing.png",
       best: true,
     },
@@ -24,7 +23,6 @@
       sub: "Hydrating & Soothing",
       size: "200 ml / 6.76 fl oz",
       price: 21900,
-      was: 24900,
       img: "assets/images/toner.png",
       best: true,
     },
@@ -35,7 +33,6 @@
       sub: "Nourishing & Firming",
       size: "30 ml / 1.01 fl oz",
       price: 32900,
-      was: 38000,
       img: "assets/images/ampoule.png",
       best: false,
     },
@@ -46,7 +43,6 @@
       sub: "Nourishing & Barrier Care",
       size: "50 ml / 1.69 fl oz",
       price: 28900,
-      was: 33000,
       img: "assets/images/cream.png",
       best: false,
     },
@@ -408,7 +404,7 @@
         <button class="card__fav" data-fav="${p.id}" aria-label="Favorite">
           <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.6-9.2-8.4C1.2 8.9 2.6 5.5 6 5.5c2 0 3.2 1.3 4 2.4.8-1.1 2-2.4 4-2.4 3.4 0 4.8 3.4 3.2 6.1C19 15.4 12 20 12 20z"/></svg>
         </button>
-        <div class="card__imgwrap"><img class="card__img" src="${p.img}" alt="${p.short}" loading="lazy"/></div>
+        <div class="card__imgwrap"><img class="card__img" src="${p.img}" alt="${p.short}" loading="lazy" decoding="async"/></div>
         <h3 class="card__name">${p.short}</h3>
         <p class="card__sub">${p.sub}</p>
         <p class="card__price">${won(p.price)}</p>
@@ -550,7 +546,7 @@
           <button class="cart-item__rm" data-rm="${p.id}" aria-label="Remove">
             <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
           </button>
-          <div class="cart-item__img"><img src="${p.img}" alt="${p.short}"/></div>
+          <div class="cart-item__img"><img src="${p.img}" alt="${p.short}" loading="lazy" decoding="async"/></div>
           <div class="cart-item__info">
             <p class="cart-item__name">${p.short}</p>
             <p class="cart-item__sub">${p.sub}</p>
